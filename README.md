@@ -8,6 +8,7 @@ Projeto disciplina de DataOps
 - Ferramentas básicas em dataops
 
 
+
 ![alt text](imgs/aula02.jpg)
 
 ```
