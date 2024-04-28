@@ -1,21 +1,24 @@
 on:
   workflow_run:
-    workflows: ["Python Linting with Flake8"]
+    workflows: ["Flake8"]
     types:
       - completed
 
+env:
+  CR_PAT: ${{ secrets.CR_PAT }}
+
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
-    needs: PythonLint
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Publish Dockerfile
-        run: |
-          echo $CR_PAT | docker login ghcr.io -u rodrigoyjcordeiro --password-stdin
-        env:
-          CR_PAT: ${{ secrets.CR_PAT }}
+      - name: Login to GitHub Container Registry
+        run: echo "${{ env.CR_PAT }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository }}:latest .
+
+      - name: Push Docker image to GitHub Registry
+        run: docker push ghcr.io/${{ github.repository }}:latest
