@@ -14,7 +14,6 @@ class AlchemyData(Step):
         logger.info('applying alchemy_data step')
         data_df['name'] = data_df['name'].str.upper()
         data_df['country'] = data_df['country'].str.upper()
-        data_df['country'] = data_df['country'].str.upper()
         data_df['web_pages'] = (data_df['web_pages']
                                 .str.replace('http://', 'https://'))
 

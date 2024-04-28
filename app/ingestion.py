@@ -21,7 +21,7 @@ steps = {
         "details": StepEnum.ALCHEMY_DATA,
         "function": AlchemyData()
     },
-    "SendEmailPhase": {
+    "StoragePhase": {
         "details": StepEnum.STORAGE_SENDER,
         "function": StorageSender()
     },
