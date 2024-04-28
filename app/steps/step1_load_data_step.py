@@ -26,7 +26,6 @@ class LoadData(Step):
             df = pd.DataFrame(content)
             df.to_csv('universidades.csv', index=False)
 
-
             return content
         else:
             (logger
