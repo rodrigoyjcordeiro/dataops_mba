@@ -17,8 +17,12 @@ jobs:
       - name: Login to GitHub Container Registry
         run: echo "${{ env.CR_PAT }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
+      - name: Get Git commit SHA
+        id: git_commit
+        run: echo "::set-output name=sha::$(git rev-parse --short HEAD)"
+
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}:latest .
+        run: docker build -t ghcr.io/${{ github.repository }}:${{ steps.git_commit.outputs.sha }} .
 
       - name: Push Docker image to GitHub Registry
-        run: docker push ghcr.io/${{ github.repository }}:latest
+        run: docker push ghcr.io/${{ github.repository }}:${{ steps.git_commit.outputs.sha }}
