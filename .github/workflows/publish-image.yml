@@ -9,8 +9,8 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     name: Build and Publish Docker Image
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,3 +27,9 @@ jobs:
 
       - name: Push Docker image to GitHub Registry
         run: docker push ghcr.io/${{ github.repository }}:${{ steps.git_commit.outputs.sha }}
+
+      - name: Tag image as latest
+        run: docker tag ghcr.io/${{ github.repository }}:${{ steps.git_commit.outputs.sha }} ghcr.io/${{ github.repository }}:latest
+
+      - name: Push latest image to GitHub Registry
+        run: docker push ghcr.io/${{ github.repository }}:latest
