@@ -1,10 +1,10 @@
 import logging
 
-from app.enums.StepEnum import StepEnum
-from app.steps.step1_load_data_step import LoadData
-from app.steps.step3_alchemy_data_step import AlchemyData
-from app.steps.step2_pruning_data_step import PruningData
-from app.steps.step4_send_file_to_storage import StorageSender
+from enums.StepEnum import StepEnum
+from steps.step1_load_data_step import LoadData
+from steps.step3_alchemy_data_step import AlchemyData
+from steps.step2_pruning_data_step import PruningData
+from steps.step4_send_file_to_storage import StorageSender
 
 logger = logging.getLogger(__name__)
 

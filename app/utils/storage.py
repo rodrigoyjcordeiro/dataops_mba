@@ -6,7 +6,7 @@ from firebase_admin import (
     storage
 )
 
-from app.enums.Environments import Environment
+from enums.Environments import Environment
 
 logger = logging.getLogger(__name__)
 

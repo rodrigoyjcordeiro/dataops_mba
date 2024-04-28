@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-from app.enums.Environments import Environment
+from enums.Environments import Environment
 
 
 class MongoDBConnector:

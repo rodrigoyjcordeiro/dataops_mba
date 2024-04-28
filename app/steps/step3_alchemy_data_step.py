@@ -1,6 +1,6 @@
 import logging
 
-from app.steps.abstract.abstract_step import Step
+from steps.abstract.abstract_step import Step
 import pandas as pd
 
 

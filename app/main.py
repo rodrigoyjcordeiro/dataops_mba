@@ -1,4 +1,4 @@
-from app.ingestion import run
+from ingestion import run
 import logging
 
 # Configure logging
