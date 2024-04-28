@@ -10,6 +10,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build and Publish Docker Image
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
