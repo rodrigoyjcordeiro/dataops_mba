@@ -95,7 +95,7 @@ class StorageSender(Step):
             logger.info('deleting temp files')
             os.remove("dados.csv")
             os.remove("dicionario.csv")
-            os.remove("univerdidades.csv")
+            os.remove("universidades.csv")
             logger.info("Temporary files removed successfully")
         except Exception as e:
             logger.error(f"Error deleting temporary files: {e}")
